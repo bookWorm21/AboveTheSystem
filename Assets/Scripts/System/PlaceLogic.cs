@@ -14,6 +14,10 @@ public class PlaceLogic : MonoBehaviour
 
     public bool IsConstruction { get; private set; }
 
+    public event System.Action StartedPlacing;
+
+    public event System.Action EndedPlacing;
+
     private void Start()
     {
         _main = Camera.main;
@@ -23,23 +27,21 @@ public class PlaceLogic : MonoBehaviour
     {
         if(_currentBuilding != null)
         {
-            if(_selected)
-            {
-                Ray ray = _main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _main.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out RaycastHit result, 100, _groundMask))
-                {
-                    Vector3 worldPosition = result.point;
-                    worldPosition.x = Mathf.RoundToInt(worldPosition.x);
-                    worldPosition.z = Mathf.RoundToInt(worldPosition.z);
-                    _currentBuilding.transform.position = worldPosition;
-                }
+            Ray centerScreen = _main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 10));
+            ArrangeInGround(centerScreen);
+
+            if (_selected)
+            {
+                ArrangeInGround(ray);
 
                 if (Input.GetMouseButtonUp(0))
                 {
                     if(_currentBuilding.IsCollisied == false)
                     {
                         _currentBuilding.Place();
+                        EndedPlacing?.Invoke();
                     }
                     else
                     {
@@ -52,9 +54,7 @@ public class PlaceLogic : MonoBehaviour
             }
             else if(Input.GetMouseButtonDown(0))
             {
-                Ray ray = _main.ScreenPointToRay(Input.mousePosition);
-
-                if(Physics.Raycast(ray, out RaycastHit result, 100, _buildingMask))
+                if (Physics.Raycast(ray, out RaycastHit result, 100, _buildingMask))
                 {
                     if(result.collider.gameObject.TryGetComponent(out BuildingGhost _))
                     {
@@ -64,10 +64,6 @@ public class PlaceLogic : MonoBehaviour
                     {
                         EndConstruction();
                     }
-                }
-                else
-                {
-                    EndConstruction();
                 }
             }
         }
@@ -80,23 +76,34 @@ public class PlaceLogic : MonoBehaviour
             EndConstruction();
         }
 
+        StartedPlacing?.Invoke();
+
         IsConstruction = true;
         _selected = false;
         _currentBuilding = Instantiate(building);
 
         Ray ray = _main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 10));
 
-        if(Physics.Raycast(ray, out RaycastHit result, 100, _groundMask))
-        {
-            Vector3 worldPosition = result.point;
-            _currentBuilding.transform.position = worldPosition;
-        }
+        ArrangeInGround(ray);
     }
 
-    private void EndConstruction()
+    public void EndConstruction()
     {
+        EndedPlacing?.Invoke();
         _selected = false;
         IsConstruction = false;
         Destroy(_currentBuilding.gameObject);
     }
+    
+    private void ArrangeInGround(Ray ray)
+    {
+        if (Physics.Raycast(ray, out RaycastHit result, 100, _groundMask))
+        {
+            Vector3 worldPosition = result.point;
+            worldPosition.x = Mathf.RoundToInt(worldPosition.x);
+            worldPosition.z = Mathf.RoundToInt(worldPosition.z);
+            _currentBuilding.transform.position = worldPosition;
+        }
+    }
+
 }
