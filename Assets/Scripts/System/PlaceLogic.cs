@@ -10,7 +10,7 @@ public class PlaceLogic : MonoBehaviour
     private BuildingGhost _currentBuilding;
     private Camera _main;
 
-    private bool _selected = false;
+    public bool IsSelected { get; private set; }
 
     public bool IsConstruction { get; private set; }
 
@@ -32,7 +32,7 @@ public class PlaceLogic : MonoBehaviour
             Ray centerScreen = _main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 10));
             ArrangeInGround(centerScreen);
 
-            if (_selected)
+            if (IsSelected)
             {
                 ArrangeInGround(ray);
 
@@ -49,7 +49,7 @@ public class PlaceLogic : MonoBehaviour
                     }
 
                     IsConstruction = false;
-                    _selected = false;
+                    IsSelected = false;
                 }
             }
             else if(Input.GetMouseButtonDown(0))
@@ -58,7 +58,7 @@ public class PlaceLogic : MonoBehaviour
                 {
                     if(result.collider.gameObject.TryGetComponent(out BuildingGhost _))
                     {
-                        _selected = true;
+                        IsSelected = true;
                     }
                     else
                     {
@@ -79,7 +79,7 @@ public class PlaceLogic : MonoBehaviour
         StartedPlacing?.Invoke();
 
         IsConstruction = true;
-        _selected = false;
+        IsSelected = false;
         _currentBuilding = Instantiate(building);
 
         Ray ray = _main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 10));
@@ -90,7 +90,7 @@ public class PlaceLogic : MonoBehaviour
     public void EndConstruction()
     {
         EndedPlacing?.Invoke();
-        _selected = false;
+        IsSelected = false;
         IsConstruction = false;
         Destroy(_currentBuilding.gameObject);
     }
