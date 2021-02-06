@@ -110,6 +110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_lvl5
       objectReference: {fileID: 0}
+    - target: {fileID: 1404869000134898, guid: 6f3e0814d7f66ff44a590734f01c6068, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4650511293886244, guid: 6f3e0814d7f66ff44a590734f01c6068, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -247,6 +251,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23223068983859902, guid: 6f3e0814d7f66ff44a590734f01c6068,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d46d8165790dd14c9fdadb3105a1897, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f3e0814d7f66ff44a590734f01c6068, type: 3}
 --- !u!1 &7905846498703781299 stripped
