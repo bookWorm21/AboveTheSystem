@@ -2358,10 +2358,10 @@ MonoBehaviour:
   _maxHeight: 8
   _minHeight: 5
   _maxX: 12
-  _minX: -10
-  _maxZ: 10
+  _minX: -8
+  _maxZ: 8
   _minZ: -12
-  _movingSpeed: 20
+  _defaultSpeed: 15
   _comingSpeed: 5
 --- !u!1 &1745530544
 GameObject:
@@ -2590,6 +2590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7f15a637444694d85f5db6d1897844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minValue: 2
+  _reductionFactor: 3.5
 --- !u!114 &1965027473
 MonoBehaviour:
   m_ObjectHideFlags: 0

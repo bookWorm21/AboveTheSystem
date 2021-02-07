@@ -5,7 +5,6 @@ using UnityEngine;
 public class PcInput : MonoBehaviour, IInputForCamera
 {
     private Vector3 _deltaPosition;
-    private float _extensionValue;
 
     private Vector3 _lastPosition;
 
@@ -37,6 +36,6 @@ public class PcInput : MonoBehaviour, IInputForCamera
 
     public float GetExtensionValue()
     {
-        return _extensionValue = Input.GetAxis("Mouse ScrollWheel");
+        return Input.GetAxis("Mouse ScrollWheel");
     }
 }

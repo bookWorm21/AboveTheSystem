@@ -66,7 +66,9 @@ public class CameraMoving : MonoBehaviour
             _currentHeight = Mathf.Clamp(_currentHeight, _minHeight, _maxHeight);
             _moving = transform.position;
             _moving.y = _currentHeight;
-            _movingSpeed = _defaultSpeed * _currentHeight / _startHeight;
+            float k = _currentHeight / _startHeight;
+            _movingSpeed = _defaultSpeed * k * k;
+            _movingSpeed = Mathf.RoundToInt(_movingSpeed);
             transform.position = Vector3.MoveTowards(transform.position,
                                                      _moving,
                                                      _comingSpeed * Time.deltaTime);
