@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrentStatePanel : MonoBehaviour
+public class HelpPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _panelForCancelPlacing;
     [SerializeField] private PlaceLogic _placeLogic;

@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6e52b50431aec47b341566856b1926, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
-  _price: 100
+  _price:
+    _ore: 10
+    _wood: 5
+    _food: 0
+    _crystal: 0
   _name: "\u0428\u0430\u0445\u0442\u0430"
+  _description: 
   _icon: {fileID: 21300000, guid: 7e082cc2cf2a4433d85e388c6bf94234, type: 3}

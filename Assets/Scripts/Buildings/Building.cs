@@ -11,6 +11,10 @@ public class Building : MonoBehaviour
 
     [SerializeField] private bool _isPlace = false;
 
+    public BuildingGhost Ghost => _ghost;
+
+    public BuildingProfile Profile => _profile;
+
     private void OnEnable()
     {
         _ghost.Placed += OnPlaced;

@@ -7,7 +7,8 @@ public class PlaceLogic : MonoBehaviour
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private LayerMask _buildingMask;
 
-    private BuildingGhost _currentBuilding;
+    private Building _currentBuilding;
+    private BuildingGhost _currentBuildingGhost;
     private Camera _main;
 
     public bool IsSelected { get; private set; }
@@ -18,6 +19,8 @@ public class PlaceLogic : MonoBehaviour
 
     public event System.Action EndedPlacing;
 
+    public event System.Action<Building> SmashedBuilding;
+
     private void Start()
     {
         _main = Camera.main;
@@ -25,7 +28,7 @@ public class PlaceLogic : MonoBehaviour
 
     private void Update()
     {
-        if(_currentBuilding != null)
+        if(_currentBuildingGhost != null)
         {
             Ray ray = _main.ScreenPointToRay(Input.mousePosition);
 
@@ -38,9 +41,10 @@ public class PlaceLogic : MonoBehaviour
 
                 if (Input.GetMouseButtonUp(0))
                 {
-                    if(_currentBuilding.IsCollisied == false)
+                    if(_currentBuildingGhost.IsCollisied == false)
                     {
-                        _currentBuilding.Place();
+                        SmashedBuilding?.Invoke(_currentBuilding);
+                        _currentBuildingGhost.Place();
                         EndedPlacing?.Invoke();
                     }
                     else
@@ -69,9 +73,9 @@ public class PlaceLogic : MonoBehaviour
         }
     }
 
-    public void SelectBuilding(BuildingGhost building)
+    public void SelectBuilding(Building building)
     {
-        if(_currentBuilding != null)
+        if(_currentBuildingGhost != null)
         {
             EndConstruction();
         }
@@ -80,7 +84,8 @@ public class PlaceLogic : MonoBehaviour
 
         IsConstruction = true;
         IsSelected = false;
-        _currentBuilding = Instantiate(building);
+        _currentBuilding = building;
+        _currentBuildingGhost = Instantiate(building.Ghost);
 
         Ray ray = _main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 10));
 
@@ -92,7 +97,7 @@ public class PlaceLogic : MonoBehaviour
         EndedPlacing?.Invoke();
         IsSelected = false;
         IsConstruction = false;
-        Destroy(_currentBuilding.gameObject);
+        Destroy(_currentBuildingGhost.gameObject);
     }
     
     private void ArrangeInGround(Ray ray)
@@ -102,7 +107,7 @@ public class PlaceLogic : MonoBehaviour
             Vector3 worldPosition = result.point;
             worldPosition.x = Mathf.RoundToInt(worldPosition.x);
             worldPosition.z = Mathf.RoundToInt(worldPosition.z);
-            _currentBuilding.transform.position = worldPosition;
+            _currentBuildingGhost.transform.position = worldPosition;
         }
     }
 
