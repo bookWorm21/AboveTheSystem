@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2252604361407583903}
-  - component: {fileID: 2252604361407583888}
   - component: {fileID: 2252604361407583889}
+  - component: {fileID: 2252604361407583888}
   - component: {fileID: 2252604361407583890}
   - component: {fileID: 1993325817351841754}
   m_Layer: 9
@@ -37,23 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2252604361407583888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252604361407583902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12ad781720757948824bd78b4e50474, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collisiedMaterial: {fileID: 2100000, guid: 4d46d8165790dd14c9fdadb3105a1897, type: 2}
-  _rightPlaced: {fileID: 2100000, guid: 305158bfefe96e142ab949e7ce121b41, type: 2}
-  _mesh: {fileID: 2239994004557256188}
-  _ghost: {fileID: 2253607240323883880}
-  _collider: {fileID: 2252604361407583890}
 --- !u!114 &2252604361407583889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +54,23 @@ MonoBehaviour:
   _profile: {fileID: 11400000, guid: c53e0bc539752b6488292db4368bd520, type: 2}
   _size: {x: 1, y: 1}
   _isPlace: 0
+--- !u!114 &2252604361407583888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252604361407583902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12ad781720757948824bd78b4e50474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisiedMaterial: {fileID: 2100000, guid: 4d46d8165790dd14c9fdadb3105a1897, type: 2}
+  _rightPlaced: {fileID: 2100000, guid: 305158bfefe96e142ab949e7ce121b41, type: 2}
+  _mesh: {fileID: 2239994004557256188}
+  _ghost: {fileID: 2253607240323883880}
+  _collider: {fileID: 2252604361407583890}
 --- !u!65 &2252604361407583890
 BoxCollider:
   m_ObjectHideFlags: 0

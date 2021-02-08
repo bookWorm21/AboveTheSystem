@@ -13,28 +13,21 @@ public class BuildPriceView : MonoBehaviour
 
     public void Present(Resources price)
     {
-        _oreView.WriteInField(price.Ore);
-        _woodView.WriteInField(price.Wood);
-        _foodView.WriteInField(price.Food);
-        _crystalView.WriteInField(price.Crystal);
+        TryWriteInField(price.Ore, _oreView);
+        TryWriteInField(price.Wood, _woodView);
+        TryWriteInField(price.Food, _foodView);
+        TryWriteInField(price.Crystal, _crystalView);
     }
 
-    [System.Serializable]
-    class PriceView
+    private void TryWriteInField(int value, PriceView view)
     {
-        [SerializeField] private TMP_Text _label;
-        [SerializeField] private GameObject _parent;
-
-        public void WriteInField(int value)
+        if(value > 0)
         {
-            if (value > 0)
-            {
-                _label.text = value.ToString();
-            }
-            else
-            {
-                _parent.SetActive(false);
-            }
+            view.WriteInField(value);
+        }
+        else
+        {
+            view.DeleteField();
         }
     }
 }

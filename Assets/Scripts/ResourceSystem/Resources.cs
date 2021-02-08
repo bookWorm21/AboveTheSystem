@@ -25,6 +25,11 @@ public class Resources
         _crystal = crystal;
     }
 
+    public static Resources GetEmpty()
+    {
+        return new Resources(0, 0, 0, 0);
+    }
+
     public static Resources operator +(Resources first, Resources second)
     {
         return new Resources(first.Ore + second.Ore,
@@ -86,14 +91,20 @@ public class Resources
     public static bool operator !=(Resources first, Resources second)
     {
         if (first == second)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 
     public static bool operator >=(Resources first, Resources second)
     {
-        if (first < second)
+        if (first.Ore < second.Ore)
+            return false;
+        if (first.Wood < second.Wood)
+            return false;
+        if (first.Food < second.Food)
+            return false;
+        if (first.Crystal < second.Crystal)
             return false;
 
         return true;
@@ -101,7 +112,13 @@ public class Resources
 
     public static bool operator <=(Resources first, Resources second)
     {
-        if (first > second)
+        if (first.Ore > second.Ore)
+            return false;
+        if (first.Wood > second.Wood)
+            return false;
+        if (first.Food > second.Food)
+            return false;
+        if (first.Crystal > second.Crystal)
             return false;
 
         return true;

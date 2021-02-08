@@ -8,10 +8,19 @@ public class Purse : MonoBehaviour
     [SerializeField] private Resources _playerResources;
 
     private Building _current;
+    private Resources _emptyResources;
+
+    public System.Action<Resources> ChangedResources;
 
     private void OnEnable()
     {
         _placeLogic.SmashedBuilding += OnSmashBuild;    
+    }
+
+    private void Start()
+    {
+        ChangedResources?.Invoke(_playerResources);
+        _emptyResources = Resources.GetEmpty();
     }
 
     private void OnDisable()
@@ -23,7 +32,7 @@ public class Purse : MonoBehaviour
     {
         _current = building;
 
-        if (_playerResources >= building.Profile.Price)
+        if (_playerResources >= _current.Profile.Price)
         {
             _placeLogic.SelectBuilding(building);
         }
@@ -33,11 +42,25 @@ public class Purse : MonoBehaviour
         }
     }
 
+    public void AddResources(Resources resources)
+    {
+        if(resources >= _emptyResources)
+        {
+            _playerResources += resources;
+            ChangedResources?.Invoke(_playerResources);
+        }
+        else
+        {
+            throw new System.Exception();
+        }
+    }
+
     private void OnSmashBuild(Building building)
     {
         if (building != _current)
             throw new System.Exception();
 
         _playerResources -= building.Profile.Price;
+        ChangedResources?.Invoke(_playerResources);
     }
 }

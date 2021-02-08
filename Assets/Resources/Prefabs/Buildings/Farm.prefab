@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _house: {fileID: 7261840793141131088}
   _ghost: {fileID: 2252604361407583888}
-  _profile: {fileID: 11400000, guid: c53e0bc539752b6488292db4368bd520, type: 2}
+  _profile: {fileID: 11400000, guid: ec12ce5941d097440bb29902b363b148, type: 2}
   _size: {x: 2, y: 3}
   _isPlace: 0
 --- !u!114 &2252604361407583888
