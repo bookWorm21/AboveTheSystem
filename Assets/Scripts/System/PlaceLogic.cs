@@ -15,7 +15,7 @@ public class PlaceLogic : MonoBehaviour
 
     public bool IsConstruction { get; private set; }
 
-    public event System.Action StartedPlacing;
+    public event System.Action<BuildingProfile> StartedPlacing;
 
     public event System.Action EndedPlacing;
 
@@ -80,12 +80,11 @@ public class PlaceLogic : MonoBehaviour
             EndConstruction();
         }
 
-        StartedPlacing?.Invoke();
-
         IsConstruction = true;
         IsSelected = false;
         _currentBuilding = building;
         _currentBuildingGhost = Instantiate(building.Ghost);
+        StartedPlacing?.Invoke(_currentBuilding.Profile);
 
         Ray ray = _main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 10));
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HelpChosenPanel : MonoBehaviour
@@ -8,6 +9,8 @@ public class HelpChosenPanel : MonoBehaviour
     [SerializeField] private GameObject _startBuildingListPanel;
     [SerializeField] private GameObject _panelForCancelPlacing;
     [SerializeField] private PlaceLogic _placeLogic;
+    [SerializeField] private GameObject _panelForDescription;
+    [SerializeField] private TMP_Text _description;
 
     private GameObject _currentBuildPanel;
 
@@ -22,6 +25,7 @@ public class HelpChosenPanel : MonoBehaviour
     {
         _buildingListPanel.SetActive(false);
         _startBuildingListPanel.SetActive(false);
+        _panelForDescription.SetActive(false);
 
         _currentBuildPanel = _startBuildingListPanel;
         OnEndPlacing();
@@ -53,13 +57,16 @@ public class HelpChosenPanel : MonoBehaviour
         _placeLogic.SmashedBuilding -= OnPlaceFirstBuild;
     }
 
-    private void OnStartPlacing()
+    private void OnStartPlacing(BuildingProfile profile)
     {
         _panelForCancelPlacing.SetActive(true);
+        _description.text = profile.Description;
+        _panelForDescription.SetActive(true);
     }
 
     private void OnEndPlacing()
     {
         _panelForCancelPlacing.SetActive(false);
+        _panelForDescription.SetActive(false);
     }
 }

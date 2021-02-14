@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6e52b50431aec47b341566856b1926, type: 3}
   m_Name: TownHall
   m_EditorClassIdentifier: 
-  _price: 0
+  _price:
+    _ore: 0
+    _wood: 0
+    _food: 0
+    _crystal: 0
   _name: "\u0420\u0430\u0442\u0443\u0448\u0430"
+  _description: "\u041F\u0440\u0438 \u043F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0435
+    \u0440\u0430\u0442\u0443\u0448\u0438 \u043D\u0430\u0447\u043D\u0435\u0442\u0441\u044F
+    \u0442\u0430\u0439\u043C\u0435\u0440 \u043D\u0430 \u0432\u043E\u043B\u043D\u0443"
   _icon: {fileID: 21300000, guid: 6fc27c9d7fc2d9448af6851bf935e6d2, type: 3}
