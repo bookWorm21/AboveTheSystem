@@ -6,6 +6,7 @@ public class CameraMoving : MonoBehaviour
 {
     [SerializeField] private PlaceLogic _placeLogic;
     [SerializeField] private QualiferPlatform _qualifer;
+    [SerializeField] private float _minSquareValueInAxis;
     [Space(order = 20)]
     [SerializeField] private float _maxHeight;
     [SerializeField] private float _minHeight;
@@ -43,6 +44,7 @@ public class CameraMoving : MonoBehaviour
         _movingSpeed = _defaultSpeed;
         _currentHeight = transform.position.y;
         _startHeight = _currentHeight;
+        _nextPosition = transform.position;
     }
 
     private void LateUpdate()
@@ -56,17 +58,22 @@ public class CameraMoving : MonoBehaviour
 
             _nextPosition = transform.position - _moving;
             _nextPosition.x = Mathf.Clamp(_nextPosition.x, _minX, _maxX);
-            _nextPosition.z = Mathf.Clamp(_nextPosition.z, _minZ, _maxZ);
+            _nextPosition.z = Mathf.Clamp(_nextPosition.z, _minZ, _maxZ);   
 
-            transform.position = Vector3.MoveTowards(transform.position,
-                                                     _nextPosition,
-                                                     _movingSpeed * Time.deltaTime);
+            Vector3 currentVelocity = -_moving * _movingSpeed;
+            transform.position = Vector3.SmoothDamp(transform.position, _nextPosition, ref currentVelocity, 0.05f , _movingSpeed);
 
             _currentHeight -= _inputing.GetExtensionValue();
             _currentHeight = Mathf.Clamp(_currentHeight, _minHeight, _maxHeight);
             _moving = transform.position;
             _moving.y = _currentHeight;
             float k = _currentHeight / _startHeight;
+
+            if(_currentHeight > _startHeight)
+            {
+                k *= (1 + (_currentHeight - _startHeight) / 2.5f);
+            }
+
             _movingSpeed = _defaultSpeed * k * k;
             _movingSpeed = Mathf.RoundToInt(_movingSpeed);
             transform.position = Vector3.MoveTowards(transform.position,

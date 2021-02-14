@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PcInput : MonoBehaviour, IInputForCamera
 {
+    [SerializeField] private float _reductionFactor;
+
     private Vector3 _deltaPosition;
 
     private Vector3 _lastPosition;
@@ -31,7 +33,8 @@ public class PcInput : MonoBehaviour, IInputForCamera
         Vector3 returnedVector3 = _deltaPosition;
         returnedVector3.z = returnedVector3.y;
         returnedVector3.y = 0;
-        return returnedVector3;
+
+        return returnedVector3 / _reductionFactor;
     }
 
     public float GetExtensionValue()

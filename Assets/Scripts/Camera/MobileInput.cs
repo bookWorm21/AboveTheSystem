@@ -56,14 +56,7 @@ public class MobileInput : MonoBehaviour, IInputForCamera
         Vector3 returnedVector3 = _deltaPosition;
         returnedVector3.z = returnedVector3.y;
         returnedVector3.y = 0;
-        if (returnedVector3.magnitude > _minValue)
-        {
-            return returnedVector3 / _reductionFactor; 
-        }
-        else
-        {
-            return Vector3.zero;
-        }
+        return returnedVector3 / _reductionFactor;
     }
 
     public float GetExtensionValue()

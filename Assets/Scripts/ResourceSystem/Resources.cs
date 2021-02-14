@@ -9,6 +9,8 @@ public class Resources
     [SerializeField] private int _food;
     [SerializeField] private int _crystal;
 
+    private int[] _allResources;
+
     public int Ore => _ore;
 
     public int Wood => _wood;
@@ -23,6 +25,14 @@ public class Resources
         _wood = wood;
         _food = food;
         _crystal = crystal;
+
+        _allResources = new int[]
+        {
+            _ore,
+            _wood,
+            _food,
+            _crystal
+        };
     }
 
     public static Resources GetEmpty()
