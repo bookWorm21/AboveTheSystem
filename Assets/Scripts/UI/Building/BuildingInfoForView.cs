@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingProductionCooldown : MonoBehaviour
+public class BuildingInfoForView : MonoBehaviour
 {
+    [SerializeField] private BuildingProduction _production;
+
     private BuildingDestructibility _destructibility;
 
     private bool _select = false;
@@ -89,6 +91,9 @@ public class BuildingProductionCooldown : MonoBehaviour
             yield return frameTime;
         }
 
-        Debug.Log("production unit " + unitButton.Profile.name +  " ready");
+        if (_production != null)
+        {
+            _production.ProduceUnit(unitButton.Profile);
+        }
     }
 }

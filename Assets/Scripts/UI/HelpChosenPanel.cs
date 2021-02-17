@@ -43,7 +43,7 @@ public class HelpChosenPanel : MonoBehaviour
         _placeLogic.SmashedBuilding -= OnPlaceFirstBuild;
     }
 
-    public void OnClickAtBuilding(BuildingProductionCooldown production)
+    public void OnClickAtBuilding(BuildingInfoForView production)
     {
         if(_lastPanel != null)
         {

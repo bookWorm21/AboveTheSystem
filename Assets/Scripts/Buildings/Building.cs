@@ -7,7 +7,7 @@ public class Building : MonoBehaviour
     [SerializeField] private GameObject _house;
     [SerializeField] private BuildingGhost _ghost;
     [SerializeField] private BuildingProfile _profile;
-    [SerializeField] private BuildingProductionCooldown _production;
+    [SerializeField] private BuildingInfoForView _production;
     [SerializeField] private Vector2Int _size;
 
     [SerializeField] private bool _isPlace = false;

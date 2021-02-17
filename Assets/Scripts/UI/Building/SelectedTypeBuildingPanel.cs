@@ -11,13 +11,13 @@ public class SelectedTypeBuildingPanel : MonoBehaviour
 
     private UnitButtonView[] _unitButtons;
     private Purse _purse;
-    private BuildingProductionCooldown _current;
+    private BuildingInfoForView _current;
 
     public void OnGameStart(Purse purse, BuildingProfile profile)
     {
         _purse = purse;
         _buildingView.Present(profile);
-        BuildingProductionCooldown[] productions = FindObjectsOfType<BuildingProductionCooldown>();
+        BuildingInfoForView[] productions = FindObjectsOfType<BuildingInfoForView>();
         for (int i = 0; i < productions.Length; i++)
         {
             productions[i].Init(this);
@@ -54,7 +54,7 @@ public class SelectedTypeBuildingPanel : MonoBehaviour
         }
     }
 
-    public void OnClickAtBuilding(BuildingProductionCooldown production)
+    public void OnClickAtBuilding(BuildingInfoForView production)
     {
         if (_current != production)
         {

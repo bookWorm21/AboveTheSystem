@@ -47,7 +47,7 @@ public class PlaceLogic : MonoBehaviour
                     {
                         SmashedBuilding?.Invoke(_currentBuilding);
                         
-                        var production = _currentBuildingGhost.gameObject.GetComponent<BuildingProductionCooldown>();
+                        var production = _currentBuildingGhost.gameObject.GetComponent<BuildingInfoForView>();
 
                         if (_chosenPanel != null)
                         {
@@ -55,7 +55,6 @@ public class PlaceLogic : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("i am");
                             production.Init(_defaultPanel);
                         }
 

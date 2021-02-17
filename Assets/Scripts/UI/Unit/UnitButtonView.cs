@@ -13,7 +13,7 @@ public class UnitButtonView : MonoBehaviour
 
     public Button BuyUnitButton => _button;
 
-    public UnitProfle Profile { get; private set; }
+    public UnitProfile Profile { get; private set; }
 
     public event System.Action<UnitButtonView> Clicked;
 
@@ -22,7 +22,7 @@ public class UnitButtonView : MonoBehaviour
         _button.onClick.AddListener(() => Clicked?.Invoke(this));
     }
 
-    public void Present(UnitProfle profile)
+    public void Present(UnitProfile profile)
     {
         Profile = profile;
         _icon.sprite = profile.Icon;

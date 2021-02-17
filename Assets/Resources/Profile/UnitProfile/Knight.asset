@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab42adcb34701048aff989b798b86da, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
+  _prefab: {fileID: 1615818493171620187, guid: 00748a0333f04aa41a31dca9d1815416, type: 3}
   _icon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
   _price:
     _ore: 10
     _wood: 10
     _food: 10
     _crystal: 1
+  _needForFood:
+    _ore: 0
+    _wood: 0
+    _food: 2
+    _crystal: 0
   _productionTime: 5
   _name: "\u041C\u0435\u0447\u043D\u0438\u043A"
   _health: 20

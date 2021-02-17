@@ -22,7 +22,7 @@ public class ChoiceBuildingForProduction : MonoBehaviour
 
             if(Physics.Raycast(ray, out RaycastHit result, 100, _buildingMask))
             {
-                if(result.transform.gameObject.TryGetComponent(out BuildingProductionCooldown production))
+                if(result.transform.gameObject.TryGetComponent(out BuildingInfoForView production))
                 {
                     if(production.IsInit)
                     {

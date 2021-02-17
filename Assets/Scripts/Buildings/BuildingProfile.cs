@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new BuildProfile", menuName = "Building/create building", order = 51)]
 public class BuildingProfile : ScriptableObject
 {
-    [SerializeField] private UnitProfle[] _productionUnits;
+    [SerializeField] private UnitProfile[] _productionUnits;
     [SerializeField] private Resources _price;
     [SerializeField] private Sprite _icon;
     [SerializeField] private float _health;
@@ -22,7 +22,7 @@ public class BuildingProfile : ScriptableObject
 
     public string Description => _description;
 
-    public UnitProfle GetUnit(int index)
+    public UnitProfile GetUnit(int index)
     {
         if(index >= 0 && index < _productionUnits.Length)
         {
