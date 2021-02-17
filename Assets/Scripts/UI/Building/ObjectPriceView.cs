@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildPriceView : MonoBehaviour
+public class ObjectPriceView : MonoBehaviour
 {
     [SerializeField] private PriceView _oreView;
     [SerializeField] private PriceView _woodView;

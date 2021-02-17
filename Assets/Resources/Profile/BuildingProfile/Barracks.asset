@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6e52b50431aec47b341566856b1926, type: 3}
   m_Name: Barracks
   m_EditorClassIdentifier: 
+  _productionUnits:
+  - {fileID: 11400000, guid: fcab49b23529d254c815614f0bc8da20, type: 2}
+  - {fileID: 11400000, guid: 0258aa5d90d37d24eb9646fc64ab7072, type: 2}
   _price:
     _ore: 5
     _wood: 10

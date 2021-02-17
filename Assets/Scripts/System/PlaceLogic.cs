@@ -6,9 +6,11 @@ public class PlaceLogic : MonoBehaviour
 {
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private LayerMask _buildingMask;
+    [SerializeField] private SelectedTypeBuildingPanel _defaultPanel;
 
     private Building _currentBuilding;
     private BuildingGhost _currentBuildingGhost;
+    private SelectedTypeBuildingPanel _chosenPanel;
     private Camera _main;
 
     public bool IsSelected { get; private set; }
@@ -44,7 +46,21 @@ public class PlaceLogic : MonoBehaviour
                     if(_currentBuildingGhost.IsCollisied == false)
                     {
                         SmashedBuilding?.Invoke(_currentBuilding);
+                        
+                        var production = _currentBuildingGhost.gameObject.GetComponent<BuildingProductionCooldown>();
+
+                        if (_chosenPanel != null)
+                        {
+                            production.Init(_chosenPanel);
+                        }
+                        else
+                        {
+                            Debug.Log("i am");
+                            production.Init(_defaultPanel);
+                        }
+
                         _currentBuildingGhost.Place();
+
                         EndedPlacing?.Invoke();
                     }
                     else
@@ -91,12 +107,20 @@ public class PlaceLogic : MonoBehaviour
         ArrangeInGround(ray);
     }
 
+    public void SetPanelForCurrentBuilding(SelectedTypeBuildingPanel panel)
+    {
+        _chosenPanel = panel;
+    }
+
     public void EndConstruction()
     {
-        EndedPlacing?.Invoke();
-        IsSelected = false;
-        IsConstruction = false;
-        Destroy(_currentBuildingGhost.gameObject);
+        if (_currentBuildingGhost != null)
+        {
+            EndedPlacing?.Invoke();
+            IsSelected = false;
+            IsConstruction = false;
+            Destroy(_currentBuildingGhost.gameObject);
+        }
     }
     
     private void ArrangeInGround(Ray ray)

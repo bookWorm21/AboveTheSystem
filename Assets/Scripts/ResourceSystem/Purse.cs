@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class Purse : MonoBehaviour
 {
-    [SerializeField] private PlaceLogic _placeLogic;
     [SerializeField] private Resources _playerResources;
 
-    private Building _current;
     private Resources _emptyResources;
 
     public System.Action<Resources> ChangedResources;
-
-    private void OnEnable()
-    {
-        _placeLogic.SmashedBuilding += OnSmashBuild;    
-    }
 
     private void Start()
     {
@@ -23,22 +16,29 @@ public class Purse : MonoBehaviour
         _emptyResources = Resources.GetEmpty();
     }
 
-    private void OnDisable()
+    public void Buy(Resources price)
     {
-        _placeLogic.SmashedBuilding -= OnSmashBuild;
+        if(_playerResources >= price)
+        {
+            _playerResources -= price;
+            ChangedResources?.Invoke(_playerResources);
+        }
+        else
+        {
+            throw new System.Exception("not enough money, pre-check required");
+        }
     }
 
-    public void BuyBuilding(Building building)
+    public bool CanBuy(Resources price)
     {
-        _current = building;
-
-        if (_playerResources >= _current.Profile.Price)
+        if(_playerResources >= price)
         {
-            _placeLogic.SelectBuilding(building);
+            return true;
         }
         else
         {
             Debug.Log("не хватает ресурсов");
+            return false;
         }
     }
 
@@ -53,14 +53,5 @@ public class Purse : MonoBehaviour
         {
             throw new System.Exception();
         }
-    }
-
-    private void OnSmashBuild(Building building)
-    {
-        if (building != _current)
-            throw new System.Exception();
-
-        _playerResources -= building.Profile.Price;
-        ChangedResources?.Invoke(_playerResources);
     }
 }

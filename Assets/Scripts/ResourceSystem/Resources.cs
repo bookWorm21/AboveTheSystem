@@ -56,6 +56,19 @@ public class Resources
                              first.Crystal - second.Crystal);
     }
 
+    public static Resources operator *(Resources resources, float value)
+    {
+        return new Resources(Mathf.RoundToInt(resources.Ore * value),
+                             Mathf.RoundToInt(resources.Wood * value),
+                             Mathf.RoundToInt(resources.Food * value),
+                             Mathf.RoundToInt(resources.Crystal * value));
+    }
+
+    public static Resources operator *(float value, Resources resources)
+    {
+        return resources * value;
+    }
+
     public static bool operator >(Resources first, Resources second)
     {
         if (first.Ore <= second.Ore)

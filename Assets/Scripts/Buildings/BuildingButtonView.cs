@@ -4,20 +4,14 @@ using UnityEngine.UI;
 
 public class BuildingButtonView : MonoBehaviour
 {
-    [SerializeField] private BuildPriceView _priceView;
-    [SerializeField] private BuildingProfile _profile;
+    [SerializeField] private ObjectPriceView _priceView;
     [SerializeField] private Image _image;
     [SerializeField] private TMP_Text _name;
 
-    private void Start()
+    public void Present(BuildingProfile profile)
     {
-        Present();
-    }
-
-    public void Present()
-    {
-        _image.sprite = _profile.Icon;
-        _name.text = _profile.Name;
-        _priceView.Present(_profile.Price);
+        _image.sprite = profile.Icon;
+        _name.text = profile.Name;
+        _priceView.Present(profile.Price);
     }
 }
