@@ -23,6 +23,7 @@ public class BuildingBuyButton : MonoBehaviour
             _payer.BuyBuilding(_building);
             _placeLogic.SetPanelForCurrentBuilding(_panel);
         });
+
         _panel.OnGameStart(purse, _building.Profile);
     }
 }

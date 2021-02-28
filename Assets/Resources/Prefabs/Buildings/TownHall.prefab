@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2252604361407583888}
   - component: {fileID: 2252604361407583890}
   - component: {fileID: 1993325817351841754}
-  - component: {fileID: -5517929166402136043}
   - component: {fileID: 5335820775528656741}
+  - component: {fileID: 8660706404511994764}
   m_Layer: 9
   m_Name: TownHall
   m_TagString: Untagged
@@ -53,7 +53,7 @@ MonoBehaviour:
   _house: {fileID: 168186932328091124}
   _ghost: {fileID: 2252604361407583888}
   _profile: {fileID: 11400000, guid: 0a69b3e687ccbc744a0d33b8fa8203fa, type: 2}
-  _production: {fileID: 0}
+  _infoForView: {fileID: 0}
   _size: {x: 3, y: 3}
   _isPlace: 0
 --- !u!114 &2252604361407583888
@@ -102,18 +102,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &-5517929166402136043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252604361407583902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e016dbc441d6b4b90c110f9961e418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5335820775528656741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +112,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b525c2ee70166b4bba5b929ca8e7f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8660706404511994764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252604361407583902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bec340b1453ff6c419f5a6a1d9a0ffd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &166886917511494612

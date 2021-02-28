@@ -7,7 +7,7 @@ public class Building : MonoBehaviour
     [SerializeField] private GameObject _house;
     [SerializeField] private BuildingGhost _ghost;
     [SerializeField] private BuildingProfile _profile;
-    [SerializeField] private BuildingInfoForView _production;
+    [SerializeField] private BuildingInfoForView _infoForView;
     [SerializeField] private Vector2Int _size;
 
     [SerializeField] private bool _isPlace = false;
@@ -27,7 +27,7 @@ public class Building : MonoBehaviour
         {
             _house.SetActive(true);
             _ghost.Place();
-            _production.Place();
+            _infoForView.Place();
         }
         else
         {

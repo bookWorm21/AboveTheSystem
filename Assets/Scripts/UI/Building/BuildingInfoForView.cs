@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingInfoForView : MonoBehaviour
+public abstract class BuildingInfoForView : MonoBehaviour
 {
-    [SerializeField] private BuildingProduction _production;
-
     private BuildingDestructibility _destructibility;
 
-    private bool _select = false;
     private float _lastNormalizedValue = 1;
+    protected bool _select = false;
 
     public  bool IsInit { get; private set; }
 
@@ -20,9 +18,13 @@ public class BuildingInfoForView : MonoBehaviour
         _destructibility = GetComponent<BuildingDestructibility>();
     }
 
+    private void Start()
+    {
+        OnStart();
+    }
+
     private void OnEnable()
     {
-        //подписка на некое событие изменения жизней
         _destructibility.LivesChanged += OnBuildingHealthChange;
     }
 
@@ -64,36 +66,5 @@ public class BuildingInfoForView : MonoBehaviour
         _select = false;
     }
 
-    public void Produce(UnitButtonView unitButton)
-    {
-        if (_select)
-        {
-            StartCoroutine(RechargeUnitProduction(unitButton));
-        }
-    }
-
-    // Перенести метод в класс производящий юнитов
-    private IEnumerator RechargeUnitProduction(UnitButtonView unitButton)
-    {
-        WaitForEndOfFrame frameTime = new WaitForEndOfFrame();
-        float rechargeTime = unitButton.Profile.ProductionTime;
-        float elapsedTime = 0;
-
-        while (elapsedTime < rechargeTime)
-        {
-            elapsedTime += Time.deltaTime;
-
-            if(_select)
-            {
-                unitButton.SetProgress(elapsedTime / rechargeTime);
-            }
-
-            yield return frameTime;
-        }
-
-        if (_production != null)
-        {
-            _production.ProduceUnit(unitButton.Profile);
-        }
-    }
+    protected abstract void OnStart();
 }
