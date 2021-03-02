@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 1993325817351841754}
   - component: {fileID: 5584800329919974516}
   - component: {fileID: 8496531808085390231}
+  - component: {fileID: 2631018217678140793}
+  - component: {fileID: 7852004534955581583}
+  - component: {fileID: -9058803932970000397}
   m_Layer: 9
   m_Name: Sawmill
   m_TagString: Untagged
@@ -35,6 +38,7 @@ Transform:
   m_Children:
   - {fileID: 5550360901108828868}
   - {fileID: 7900243546295665253}
+  - {fileID: 1665044898971810615}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,6 +130,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68eb6077be9072c46a8c173a09b8e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &2631018217678140793
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252604361407583902}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.65, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &7852004534955581583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252604361407583902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac0aec782faaba4c8db71836db06a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pointForSpawn: {fileID: 1665044898971810615}
+--- !u!114 &-9058803932970000397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252604361407583902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e9ac6272be6b46bd1540adbdcb056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8983243955543683673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1665044898971810615}
+  m_Layer: 9
+  m_Name: TransformPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1665044898971810615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8983243955543683673}
+  m_LocalRotation: {x: -0, y: -0.7259102, z: -0, w: 0.68778956}
+  m_LocalPosition: {x: 1.2, y: 0.02, z: 0.037}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
+  m_Children: []
+  m_Father: {fileID: 2252604361407583903}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -93.089005, z: 0}
 --- !u!1001 &5554717662090438112
 PrefabInstance:
   m_ObjectHideFlags: 0

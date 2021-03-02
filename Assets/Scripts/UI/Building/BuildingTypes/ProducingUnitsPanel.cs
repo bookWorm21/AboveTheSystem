@@ -14,7 +14,8 @@ public abstract class ProducingUnitsPanel : SelectedTypeBuildingPanel
         Debug.Log(unitButton);
         if (_purse.CanBuy(unitButton.Profile.Price))
         {
-            BaracksInfoForView current = (BaracksInfoForView)_current;
+            Debug.Log("produce");
+            ProducingUnitsInfo current = (ProducingUnitsInfo)_current;
             current.Produce(unitButton);
             _purse.Buy(unitButton.Profile.Price);
         }

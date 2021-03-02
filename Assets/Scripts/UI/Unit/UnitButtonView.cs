@@ -17,7 +17,7 @@ public class UnitButtonView : MonoBehaviour
 
     public event System.Action<UnitButtonView> Clicked;
 
-    private void OnEnable()
+    private void Start()
     {
         _button.onClick.AddListener(() => Clicked?.Invoke(this));
     }

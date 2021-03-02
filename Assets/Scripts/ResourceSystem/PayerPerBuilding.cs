@@ -31,7 +31,7 @@ public class PayerPerBuilding : MonoBehaviour
 
     private void OnSmashBuild(Building building)
     {
-        if (building != _current)
+        if (building.Profile != _current.Profile)
             throw new System.Exception();
 
         _purse.Buy(building.Profile.Price);

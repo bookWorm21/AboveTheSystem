@@ -15,6 +15,8 @@ public class BuildingDestructibility : MonoBehaviour
     {
         _building = GetComponent<Building>();
         _maxLives = _building.Profile.Health;
+        _lives = _maxLives;
+        LivesChanged?.Invoke(_lives / _maxLives);
     }
 
     public void ApplyDamage(float damage)

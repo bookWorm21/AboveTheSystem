@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5936987248043651962}
   - component: {fileID: 2252604361407583890}
   - component: {fileID: 1993325817351841754}
+  - component: {fileID: 3275568012570799006}
   m_Layer: 9
   m_Name: Baracks
   m_TagString: Untagged
@@ -113,7 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d0b042627d71442aee09c4df131a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _production: {fileID: 4537967892342904960}
 --- !u!65 &2252604361407583890
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -143,6 +143,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!208 &3275568012570799006
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252604361407583902}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.1, y: 0.1, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4176621572108909369
 GameObject:
   m_ObjectHideFlags: 0

@@ -97,8 +97,8 @@ public class PlaceLogic : MonoBehaviour
 
         IsConstruction = true;
         IsSelected = false;
-        _currentBuilding = building;
-        _currentBuildingGhost = Instantiate(building.Ghost);
+        _currentBuilding = Instantiate(building);
+        _currentBuildingGhost = _currentBuilding.GetComponent<BuildingGhost>();
         StartedPlacing?.Invoke(_currentBuilding.Profile);
 
         Ray ray = _main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 10));
