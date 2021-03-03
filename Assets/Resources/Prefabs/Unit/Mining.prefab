@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 1654483068481202307}
   - component: {fileID: 4442716867684899772}
   - component: {fileID: 7353822498335397547}
+  - component: {fileID: 9099452298040307779}
   m_Layer: 0
   m_Name: Mining
   m_TagString: Untagged
@@ -133,9 +134,10 @@ MonoBehaviour:
   _feller: {fileID: 6397037189126681028}
   _onOverflow: {fileID: 4442716867684899772}
   _onTargetDestroyed: {fileID: 7353822498335397547}
+  _hitTracker: {fileID: 8505866078040260036}
+  _container: {fileID: 9099452298040307779}
   _maxResourcesInHand: 5
   _resourcesPerHit: 1
-  _hitTracker: {fileID: 8505866078040260036}
 --- !u!114 &4442716867684899772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feller: {fileID: 6397037189126681028}
+  _container: {fileID: 9099452298040307779}
   _stopDistance: 1
   _onComeToSource: {fileID: 7353822498335397547}
 --- !u!114 &7353822498335397547
@@ -166,7 +169,24 @@ MonoBehaviour:
   _feller: {fileID: 6397037189126681028}
   _onComeToTarget: {fileID: 1654483068481202307}
   _onTargetDestroyed: {fileID: 0}
-  _stopDistance: 0.7
+  _stopDistance: 0.6
+--- !u!114 &9099452298040307779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397037189126681024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a587bf6b1e0190d46b0d99ba9444a4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitMinedResources:
+    _ore: 0
+    _wood: 1
+    _food: 0
+    _crystal: 0
 --- !u!1001 &6397037188200056253
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -34,6 +34,8 @@ public class FellerMovingToSource : FellerState
             Vector3 target2d = _source.transform.position;
             target2d.y = transform.position.y;
             transform.rotation = Quaternion.LookRotation(target2d - transform.position);
+
+            _source.Pick(_container.GetAccumulated());
             NeedTransition(_onComeToSource);
         }
     }

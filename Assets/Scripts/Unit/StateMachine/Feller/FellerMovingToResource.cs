@@ -15,10 +15,11 @@ public class FellerMovingToResource : FellerState
         _navAgent.enabled = true;
         _currentTarget = _feller.GetTarget();
 
+        _animator.SetBool(_walkingHash, true);
+        _animator.SetBool(_miningHash, false);
+
         if (_currentTarget == null || _currentTarget.IsDestroy)
         {
-            _animator.SetBool(_walkingHash, true);
-            _animator.SetBool(_miningHash, false);
             SetNewTarget();
         }
         else
@@ -55,6 +56,7 @@ public class FellerMovingToResource : FellerState
             if (_currentTarget.IsDestroy == false)
             {
                 _currentTarget.Destroed += SetNewTarget;
+                _navAgent.enabled = true;
                 _navAgent.SetDestination(_currentTarget.transform.position);
             }
         }

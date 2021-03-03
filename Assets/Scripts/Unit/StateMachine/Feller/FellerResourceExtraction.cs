@@ -40,8 +40,8 @@ public class FellerResourceExtraction : FellerState
                 NeedTransition(_onOverflow);
             }
         }
-
-        if (_currentTarget.IsDestroy)
+        
+        if(_currentTarget.IsDestroy && _currentResources < _maxResourcesInHand)
         {
             NeedTransition(_onTargetDestroyed);
         }

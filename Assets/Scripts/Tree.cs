@@ -13,16 +13,20 @@ public class Tree : MonoBehaviour
 
     public int ApplyDamage(int hit)
     {
+        int resultHit;
         if(hit >= _health)
         {
             Destroy();
-            return _health;
+            resultHit = _health;
+            _health = 0;
         }
         else
         {
             _health -= hit;
-            return hit;
+            resultHit = hit;
         }
+
+        return resultHit;
     }
 
     private void Destroy()

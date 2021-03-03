@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceAdder : MonoBehaviour
+public class CheetResourceAdder : MonoBehaviour
 {
     [SerializeField] private Purse _purse;
 

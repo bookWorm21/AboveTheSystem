@@ -5,7 +5,7 @@ using UnityEngine;
 public class FellerResourceContainer : MonoBehaviour
 {
     [Header("normalized value")]
-    [SerializeField] private Resources _unitResources;
+    [SerializeField] private Resources _unitMinedResources;
 
     public int CurrentResourcesCount { get; private set; }
 
@@ -19,10 +19,10 @@ public class FellerResourceContainer : MonoBehaviour
         CurrentResourcesCount += value;
     }
 
-    public Resources Pick()
+    public Resources GetAccumulated()
     {
         int count = CurrentResourcesCount;
         CurrentResourcesCount = 0;
-        return count * _unitResources;
+        return count * _unitMinedResources;
     }
 }
