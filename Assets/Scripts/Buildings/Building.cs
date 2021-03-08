@@ -35,11 +35,6 @@ public class Building : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        _ghost.Placed -= OnPlaced;
-    }
-
     private void OnPlaced()
     {
         _house.SetActive(true);

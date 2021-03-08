@@ -6,13 +6,22 @@ using TMPro;
 
 public class BuildingViewOnSelected : MonoBehaviour
 {
+    [SerializeField] private SellingBuildings _sellingBuildings;
     [SerializeField] private ObjectPriceView _priceView;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private Image _icon;
-    [SerializeField] private Button _sellBuilding;
+    [SerializeField] private Button _sellBuildingButton;
 
     private Resources _startBuildingPrice;
     private Resources _currentBuildingPrice;
+
+    private void Start()
+    {
+        _sellBuildingButton.onClick.AddListener(() =>
+        {
+            _sellingBuildings.SellCurrentBuilding(_currentBuildingPrice);
+        });
+    }
 
     public void Present(BuildingProfile profile)
     {
@@ -24,7 +33,6 @@ public class BuildingViewOnSelected : MonoBehaviour
 
     public void BuildingHealthChange(float normalizedValue)
     {
-        Debug.Log(_startBuildingPrice);
         _currentBuildingPrice = _startBuildingPrice * normalizedValue;
         _priceView.Present(_currentBuildingPrice);
     }

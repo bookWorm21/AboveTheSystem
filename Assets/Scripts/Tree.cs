@@ -33,5 +33,6 @@ public class Tree : MonoBehaviour
     {
         IsDestroy = true;
         Destroed?.Invoke();
+        Destroy(gameObject);    
     }
 }

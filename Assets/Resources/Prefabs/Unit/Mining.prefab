@@ -21,13 +21,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6397037189126681031}
-  - component: {fileID: 6397037189126681025}
   - component: {fileID: 6397037189126681026}
   - component: {fileID: 6397037189126681028}
   - component: {fileID: 6397037189126681027}
   - component: {fileID: 1654483068481202307}
   - component: {fileID: 4442716867684899772}
   - component: {fileID: 7353822498335397547}
+  - component: {fileID: 2429688546870405416}
   - component: {fileID: 9099452298040307779}
   m_Layer: 0
   m_Name: Mining
@@ -51,20 +51,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -93.089005, z: 0}
---- !u!136 &6397037189126681025
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6397037189126681024}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.6
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!195 &6397037189126681026
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -116,6 +102,7 @@ MonoBehaviour:
   - {fileID: 1654483068481202307}
   - {fileID: 4442716867684899772}
   - {fileID: 7353822498335397547}
+  - {fileID: 2429688546870405416}
   _defaultState: {fileID: 7353822498335397547}
   _animator: {fileID: 6397037188192678109}
   _navAgent: {fileID: 6397037189126681026}
@@ -154,6 +141,7 @@ MonoBehaviour:
   _container: {fileID: 9099452298040307779}
   _stopDistance: 1
   _onComeToSource: {fileID: 7353822498335397547}
+  _onNoSource: {fileID: 2429688546870405416}
 --- !u!114 &7353822498335397547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,8 +156,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feller: {fileID: 6397037189126681028}
   _onComeToTarget: {fileID: 1654483068481202307}
-  _onTargetDestroyed: {fileID: 0}
+  _onNoTargets: {fileID: 2429688546870405416}
   _stopDistance: 0.6
+--- !u!114 &2429688546870405416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397037189126681024}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c410f989d93dc49be43727884a846c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _feller: {fileID: 6397037189126681028}
+  _nextState: {fileID: 4442716867684899772}
 --- !u!114 &9099452298040307779
 MonoBehaviour:
   m_ObjectHideFlags: 0

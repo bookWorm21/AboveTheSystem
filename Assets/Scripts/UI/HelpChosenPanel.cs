@@ -10,6 +10,9 @@ public class HelpChosenPanel : MonoBehaviour
     [SerializeField] private GameObject _panelForCancelPlacing;
     [SerializeField] private GameObject _panelForDescription;
 
+    [SerializeField] private GameObject _openBuildingListPanel;
+    [SerializeField] private GameObject _closeBuildingListPanel;
+
     [SerializeField] private PlaceLogic _placeLogic;
 
     [SerializeField] private TMP_Text _description;
@@ -17,6 +20,8 @@ public class HelpChosenPanel : MonoBehaviour
     private GameObject _currentBuildPanel;
 
     private SelectedTypeBuildingPanel _lastPanel;
+
+    private bool _haveTargetForCancelButton;
 
     private void OnEnable()
     {
@@ -50,9 +55,13 @@ public class HelpChosenPanel : MonoBehaviour
             _lastPanel.gameObject.SetActive(false);
         }
 
+        _openBuildingListPanel.SetActive(true);
+        _closeBuildingListPanel.SetActive(false);
+
         _currentBuildPanel.SetActive(false);
         _panelForCancelPlacing.SetActive(true);
         production.ChosenPanel.gameObject.SetActive(true);
+
         _lastPanel = production.ChosenPanel;
     }
 
@@ -64,6 +73,11 @@ public class HelpChosenPanel : MonoBehaviour
         {
             _lastPanel.gameObject.SetActive(false);
         }
+
+        if(_haveTargetForCancelButton == false)
+        {
+            _panelForCancelPlacing.SetActive(false);
+        }
     }
 
     public void OnClickCloseBuildingButton()
@@ -72,14 +86,20 @@ public class HelpChosenPanel : MonoBehaviour
         _panelForDescription.SetActive(false);
     }
 
-    public void OnClickCloseButton()
+    public void OnClickClosePanelButton()
     {
         if (_lastPanel != null)
         {
             _lastPanel.gameObject.SetActive(false);
         }
 
+        _haveTargetForCancelButton = false;
         _panelForCancelPlacing.SetActive(false);
+    }
+
+    public void OnSellCurrentBuilding()
+    {
+        OnClickClosePanelButton();
     }
 
     private void OnPlaceFirstBuild(Building building)
@@ -96,11 +116,15 @@ public class HelpChosenPanel : MonoBehaviour
         _panelForCancelPlacing.SetActive(true);
         _description.text = profile.Description;
         _panelForDescription.SetActive(true);
+
+        _haveTargetForCancelButton = true;
     }
 
     private void OnEndPlacing()
     {
         _panelForCancelPlacing.SetActive(false);
         _panelForDescription.SetActive(false);
+
+        _haveTargetForCancelButton = false;
     }
 }

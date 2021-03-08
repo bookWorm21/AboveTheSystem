@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184622, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
       propertyPath: m_Name
-      value: Tree
+      value: Tree Variant
       objectReference: {fileID: 0}
     - target: {fileID: 405966, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
       propertyPath: m_RootOrder
@@ -56,6 +56,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 312854843, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
+      propertyPath: _mesh
+      value: 
+      objectReference: {fileID: 6860660005743235901}
+    - target: {fileID: 312854843, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
       propertyPath: _health
       value: 10
       objectReference: {fileID: 0}
@@ -73,3 +77,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
+--- !u!23 &6860660005743235901 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2331214, guid: c7bcf19bbfa57ed4ea9147dff66d5542,
+    type: 3}
+  m_PrefabInstance: {fileID: 6860660005745295731}
+  m_PrefabAsset: {fileID: 0}

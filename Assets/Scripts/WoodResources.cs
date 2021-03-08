@@ -7,8 +7,11 @@ public class WoodResources : MonoBehaviour
     [SerializeField] private PlaceLogic _placeLogic;
 
     private List<SawmillInfo> _sawmills = new List<SawmillInfo>();
+    private List<Feller> _waitingUnits = new List<Feller>();
     private Tree[] _trees;
     private int _indexFromStartDestroyedTrees;
+
+    private bool _haveWaitingUnits;
 
     private static WoodResources _instance;
 
@@ -21,14 +24,12 @@ public class WoodResources : MonoBehaviour
 
     private void Start()
     {
-        if(_instance == null)
-        {
-            _instance = this;
-        }
-        else
+        if(_instance != null)
         {
             Destroy(this);
         }
+
+        _instance = this;
 
         _trees = FindObjectsOfType<Tree>();
         SawmillInfo[] sawmills = FindObjectsOfType<SawmillInfo>();
@@ -49,7 +50,44 @@ public class WoodResources : MonoBehaviour
     public BuildingResourceContainer GetNearSource(Vector3 position)
     {
         //TODO:сделать поиск ближайшего источника, аналогично деревьям
-        return _sawmills[0].GetComponent<BuildingResourceContainer>();
+        int buildIndex = -1;
+        float minDistance = float.MaxValue;
+
+        if (_haveWaitingUnits == false)
+        {
+            for (int i = 0; i < _sawmills.Count; i++)
+            {
+                if (_sawmills[i] != null)
+                {
+                    float currentDistance = Vector3.Distance(position, _sawmills[i].transform.position);
+                    if (currentDistance < minDistance)
+                    {
+                        minDistance = currentDistance;
+                        buildIndex = i;
+                    }
+                }
+            }
+
+            if (buildIndex == -1)
+            {
+                _sawmills = new List<SawmillInfo>();
+                return null;
+            }
+            else
+            {
+                return _sawmills[buildIndex].GetComponent<BuildingResourceContainer>();
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public void AddInWaitingList(Feller feller)
+    {
+        _haveWaitingUnits = true;
+        _waitingUnits.Add(feller);
     }
 
     public Tree GetNearTree(Vector3 unitPosition)
@@ -59,45 +97,57 @@ public class WoodResources : MonoBehaviour
             return null;
         }
 
+        Tree target = null;
         int treeIndex = 0;
-        float minDistance = Vector3.Distance(unitPosition, _trees[0].transform.position);
+        float minDistance = float.MaxValue;
 
-        for(int i = 0; i < _indexFromStartDestroyedTrees; i++)
+        while (target == null && _indexFromStartDestroyedTrees > 0)
         {
-            if(_trees[i].IsDestroy == false)
+            for (int i = 0; i < _indexFromStartDestroyedTrees; i++)
             {
-                float currentDistance = Vector3.Distance(unitPosition, _trees[i].transform.position);
-                if (currentDistance < minDistance)
+                if (_trees[i] != null && _trees[i].IsDestroy == false)
                 {
-                    treeIndex = i;
-                    minDistance = currentDistance;
-                }
-            }
-            else
-            {
-                Tree template = _trees[i];
-                if(_indexFromStartDestroyedTrees < _trees.Length)
-                {
-                    _trees[_indexFromStartDestroyedTrees - 1] = _trees[i];
+                    float currentDistance = Vector3.Distance(unitPosition, _trees[i].transform.position);
+                    if (currentDistance < minDistance)
+                    {
+                        treeIndex = i;
+                        minDistance = currentDistance;
+                    }
                 }
                 else
                 {
+                    Tree template = _trees[i];
+
                     _trees[i] = _trees[_indexFromStartDestroyedTrees - 1];
                     _trees[_indexFromStartDestroyedTrees - 1] = template;
-                }
 
-                _indexFromStartDestroyedTrees--;
+                    _indexFromStartDestroyedTrees--;
+                }
             }
+
+            target = _trees[treeIndex];
         }
 
-        return _trees[treeIndex];
+        return target;
     }
+
 
     private void OnPlaceNewBuilding(Building building)
     {
         if(building.TryGetComponent(out SawmillInfo sawmill))
         {
             _sawmills.Add(sawmill);
+            
+            if(_haveWaitingUnits)
+            {
+                for(int i = 0; i < _waitingUnits.Count; i++)
+                {
+                    _waitingUnits[i].PlaceSource(sawmill);
+                }
+
+                _waitingUnits = new List<Feller>();
+                _haveWaitingUnits = false;
+            }
         }
     }
 }

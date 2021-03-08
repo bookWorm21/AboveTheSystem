@@ -9,6 +9,8 @@ public class ChoiceBuildingForProduction : MonoBehaviour
 
     private Camera _main;
 
+    public BuildingInfoForView Current { get; private set; }
+
     private void Start()
     {
         _main = Camera.main;
@@ -26,6 +28,7 @@ public class ChoiceBuildingForProduction : MonoBehaviour
                 {
                     if(production.IsInit)
                     {
+                        Current = production;
                         production.Click();
                         _helpPanel.OnClickAtBuilding(production);
                     }

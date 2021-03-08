@@ -35,6 +35,11 @@ public class Resources
         };
     }
 
+    public string InputString()
+    {
+        return "ore - " + _ore + ", wood - " + _wood + ", food - " + _food + ", crystal - " + _crystal;
+    }
+
     public static Resources GetEmpty()
     {
         return new Resources(0, 0, 0, 0);

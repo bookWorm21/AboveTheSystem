@@ -11,6 +11,7 @@ public class PriceView
 
     public void WriteInField(int value)
     {
+        _parent.SetActive(true);
         _label.text = value.ToString();
     }
 

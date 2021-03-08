@@ -5,13 +5,15 @@ using UnityEngine;
 public class FellerMovingToResource : FellerState
 {
     [SerializeField] private State _onComeToTarget;
-    [SerializeField] private State _onTargetDestroyed;
+    [SerializeField] private State _onNoTargets;
     [SerializeField] private float _stopDistance;
 
     private Tree _currentTarget;
+    private bool _isActive = false;
 
     private void OnEnable()
     {
+        _isActive = true;
         _navAgent.enabled = true;
         _currentTarget = _feller.GetTarget();
 
@@ -31,13 +33,17 @@ public class FellerMovingToResource : FellerState
 
     private void Update()
     {
-        if(Vector3.Distance(transform.position, _currentTarget.transform.position) < _stopDistance)
+        if (_currentTarget != null)
         {
-            _navAgent.enabled = false;
-            Vector3 target2d = _currentTarget.transform.position;
-            target2d.y = transform.position.y;
-            transform.rotation = Quaternion.LookRotation(target2d - transform.position);
-            NeedTransition(_onComeToTarget);
+            if (Vector3.Distance(transform.position, _currentTarget.transform.position) < _stopDistance)
+            {
+                _navAgent.enabled = false;
+                Vector3 target2d = _currentTarget.transform.position;
+                target2d.y = transform.position.y;
+                transform.rotation = Quaternion.LookRotation(target2d - transform.position);
+                _isActive = false;
+                NeedTransition(_onComeToTarget);
+            }
         }
     }
 
@@ -53,16 +59,19 @@ public class FellerMovingToResource : FellerState
 
         if (_currentTarget != null)
         {
-            if (_currentTarget.IsDestroy == false)
+            if (_isActive)
             {
-                _currentTarget.Destroed += SetNewTarget;
-                _navAgent.enabled = true;
-                _navAgent.SetDestination(_currentTarget.transform.position);
+                if (_currentTarget.IsDestroy == false)
+                {
+                    _currentTarget.Destroed += SetNewTarget;
+                    _navAgent.enabled = true;
+                    _navAgent.SetDestination(_currentTarget.transform.position);
+                }
             }
         }
         else
         {
-            //afke
+            NeedTransition(_onNoTargets);
         }
     }
 }

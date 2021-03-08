@@ -20,12 +20,23 @@ public class FellerResourceExtraction : FellerState
         _currentTarget = _feller.GetTarget();
         _animator.SetBool(_miningHash, true);
         _animator.SetBool(_walkingHash, false);
+
+        if(_currentTarget != null)
+        {
+            _currentTarget.Destroed += OnTargetDestroyed;
+        }
     }
 
     private void Start()
     {
         _hitTracker.Hitted += HitTree;
         _currentResources = 0;
+    }
+
+    private void OnTargetDestroyed()
+    {
+        _currentTarget.Destroed -= OnTargetDestroyed;
+        NeedTransition(_onTargetDestroyed);
     }
 
     private void HitTree()
@@ -35,15 +46,11 @@ public class FellerResourceExtraction : FellerState
             int hitValue = _currentTarget.ApplyDamage(_resourcesPerHit);
             _container.Add(hitValue);
             _currentResources += hitValue;
-            if (_currentResources >= _maxResourcesInHand)
-            {
-                NeedTransition(_onOverflow);
-            }
         }
-        
-        if(_currentTarget.IsDestroy && _currentResources < _maxResourcesInHand)
+
+        if (_currentResources >= _maxResourcesInHand)
         {
-            NeedTransition(_onTargetDestroyed);
+            NeedTransition(_onOverflow);
         }
     }
 }

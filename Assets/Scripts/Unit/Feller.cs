@@ -7,6 +7,8 @@ public class Feller : Unit
     private Tree _currentTarget;
     private BuildingResourceContainer _source;
 
+    public event System.Action<BuildingResourceContainer> PlacedSource;
+
     public Tree GetTarget()
     {
         return _currentTarget;
@@ -25,5 +27,13 @@ public class Feller : Unit
     public void SetSource(BuildingResourceContainer source)
     {
         _source = source;
+    }
+
+    public void PlaceSource(SawmillInfo sawmill)
+    {
+        if(sawmill.TryGetComponent(out BuildingResourceContainer container))
+        {
+            PlacedSource?.Invoke(container);
+        }
     }
 }

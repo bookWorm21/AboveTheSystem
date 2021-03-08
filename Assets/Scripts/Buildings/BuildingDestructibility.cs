@@ -28,7 +28,14 @@ public class BuildingDestructibility : MonoBehaviour
         }
         else
         {
-            // destroy
+            Destroy();
         }
+    }
+
+    public void Destroy()
+    {
+        _lives = 0;
+        LivesChanged?.Invoke(_lives / _maxLives);
+        Destroy(gameObject);
     }
 }
