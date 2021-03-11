@@ -49,7 +49,6 @@ public class WoodResources : MonoBehaviour
 
     public BuildingResourceContainer GetNearSource(Vector3 position)
     {
-        //TODO:сделать поиск ближайшего источника, аналогично деревьям
         int buildIndex = -1;
         float minDistance = float.MaxValue;
 
