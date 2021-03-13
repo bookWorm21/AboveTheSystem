@@ -61,7 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 6860660005743235901}
     - target: {fileID: 312854843, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
       propertyPath: _health
-      value: 10
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 312854843, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
+      propertyPath: _destructible
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 312854844, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
       propertyPath: m_Shape

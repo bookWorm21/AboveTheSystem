@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FellerResourceContainer : MonoBehaviour
+public class ErnerResourceContainer : MonoBehaviour
 {
     [Header("normalized value")]
     [SerializeField] private Resources _unitMinedResources;
@@ -11,7 +11,8 @@ public class FellerResourceContainer : MonoBehaviour
 
     private void Start()
     {
-        CurrentResourcesCount = 0;    
+        CurrentResourcesCount = 0;
+        _unitMinedResources = Resources.GetNormalizedValue(_unitMinedResources);
     }
 
     public void Add(int value)

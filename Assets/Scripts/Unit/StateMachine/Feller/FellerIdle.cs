@@ -15,12 +15,11 @@ public class FellerIdle : FellerState
 
     private void Start()
     {
-        _feller.PlacedSource += OnPlaceTarget;
+        _erner.PlacedSource += OnPlaceTarget;
     }
 
     private void OnPlaceTarget(BuildingResourceContainer container)
     {
-        _feller.SetSource(container);
         NeedTransition(_nextState);
     }
 }

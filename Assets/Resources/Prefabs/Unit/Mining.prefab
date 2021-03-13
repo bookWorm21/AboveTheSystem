@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 4442716867684899772}
   - component: {fileID: 7353822498335397547}
   - component: {fileID: 2429688546870405416}
-  - component: {fileID: 9099452298040307779}
+  - component: {fileID: 1436520089556360396}
   m_Layer: 0
   m_Name: Mining
   m_TagString: Untagged
@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3169d6ae80f65b40a4d6e58f9ee9ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _feller: {fileID: 6397037189126681028}
+  _erner: {fileID: 6397037189126681028}
   _onOverflow: {fileID: 4442716867684899772}
   _onTargetDestroyed: {fileID: 7353822498335397547}
   _hitTracker: {fileID: 8505866078040260036}
-  _container: {fileID: 9099452298040307779}
+  _container: {fileID: 1436520089556360396}
   _maxResourcesInHand: 5
   _resourcesPerHit: 1
 --- !u!114 &4442716867684899772
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df14458c6f0db0429f35afd7c1d4b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _feller: {fileID: 6397037189126681028}
-  _container: {fileID: 9099452298040307779}
+  _erner: {fileID: 6397037189126681028}
+  _container: {fileID: 1436520089556360396}
   _stopDistance: 1
   _onComeToSource: {fileID: 7353822498335397547}
   _onNoSource: {fileID: 2429688546870405416}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681dc25b669362145bca7ad790e41b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _feller: {fileID: 6397037189126681028}
+  _erner: {fileID: 6397037189126681028}
   _onComeToTarget: {fileID: 1654483068481202307}
   _onNoTargets: {fileID: 2429688546870405416}
   _stopDistance: 0.6
@@ -170,9 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c410f989d93dc49be43727884a846c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _feller: {fileID: 6397037189126681028}
+  _erner: {fileID: 6397037189126681028}
   _nextState: {fileID: 4442716867684899772}
---- !u!114 &9099452298040307779
+--- !u!114 &1436520089556360396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,12 +181,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6397037189126681024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a587bf6b1e0190d46b0d99ba9444a4d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 39054b42ebdcb4d498bd258ddb108093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _unitMinedResources:
     _ore: 0
-    _wood: 1
+    _wood: 5
     _food: 0
     _crystal: 0
 --- !u!1001 &6397037188200056253

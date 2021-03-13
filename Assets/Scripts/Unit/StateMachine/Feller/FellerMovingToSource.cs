@@ -4,63 +4,61 @@ using UnityEngine;
 
 public class FellerMovingToSource : FellerState
 {
-    [SerializeField] private FellerResourceContainer _container;
+    [SerializeField] private ErnerResourceContainer _container;
     [SerializeField] private float _stopDistance;
     [SerializeField] private State _onComeToSource;
     [SerializeField] private State _onNoSource;
 
-    private BuildingResourceContainer _source;
+    private BuildingResourceContainer _salePoint;
 
     private void OnEnable()
     {
-        _source = _feller.GetSource();
+        _salePoint = _erner.GetSalePoint();
         _navAgent.enabled = true;
 
-        if(_source == null)
+        if(_salePoint == null)
         {
-            _source = WoodResources.Instance.GetNearSource(transform.position);
-            _feller.SetSource(_source);
+            _salePoint = _erner.GetSalePoint();
         }
 
-        if (_source != null)
+        if (_salePoint != null)
         {
             _animator.SetBool(_miningHash, false);
             _animator.SetBool(_walkingHash, true);
-            _navAgent.SetDestination(_source.transform.position);
+            _navAgent.SetDestination(_salePoint.transform.position);
         }
         else
         {
-            WoodResources.Instance.AddInWaitingList(_feller);
             NeedTransition(_onNoSource);
         }
     }
 
     private void FixedUpdate()
     {
-        if (_source != null)
+        if (_salePoint != null)
         {
-            if (Vector3.Distance(transform.position, _source.transform.position) < _stopDistance)
+            if (Vector3.Distance(transform.position, _salePoint.transform.position) < _stopDistance)
             {
                 _navAgent.enabled = false;
-                Vector3 target2d = _source.transform.position;
+                Vector3 target2d = _salePoint.transform.position;
                 target2d.y = transform.position.y;
                 transform.rotation = Quaternion.LookRotation(target2d - transform.position);
 
-                _source.Pick(_container.GetAccumulated());
+                _salePoint.Pick(_container.GetAccumulated());
                 NeedTransition(_onComeToSource);
             }
         }
         else
         {
-            _source = WoodResources.Instance.GetNearSource(transform.position);
-            if (_source == null)
+            _salePoint = _erner.GetSalePoint();
+
+            if (_salePoint == null)
             {
-                WoodResources.Instance.AddInWaitingList(_feller);
                 NeedTransition(_onNoSource);
             }
             else
             {
-                _navAgent.SetDestination(_source.transform.position);
+                _navAgent.SetDestination(_salePoint.transform.position);
             }
         }
     }

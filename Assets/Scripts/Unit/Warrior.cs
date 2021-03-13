@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Warrior : Unit
 {
-    
+    protected override void OnStart()
+    {
+        
+    }
 }

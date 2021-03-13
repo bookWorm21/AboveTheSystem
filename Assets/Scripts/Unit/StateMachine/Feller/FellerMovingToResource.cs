@@ -8,14 +8,14 @@ public class FellerMovingToResource : FellerState
     [SerializeField] private State _onNoTargets;
     [SerializeField] private float _stopDistance;
 
-    private Tree _currentTarget;
+    private ResourceSource _currentTarget;
     private bool _isActive = false;
 
     private void OnEnable()
     {
         _isActive = true;
         _navAgent.enabled = true;
-        _currentTarget = _feller.GetTarget();
+        _currentTarget = _erner.GetSource();
 
         _animator.SetBool(_walkingHash, true);
         _animator.SetBool(_miningHash, false);
@@ -26,7 +26,6 @@ public class FellerMovingToResource : FellerState
         }
         else
         {
-            _currentTarget.Destroed += SetNewTarget;
             _navAgent.SetDestination(_currentTarget.transform.position);
         }
     }
@@ -45,17 +44,15 @@ public class FellerMovingToResource : FellerState
                 NeedTransition(_onComeToTarget);
             }
         }
+        else
+        {
+            SetNewTarget();
+        }
     }
 
     private void SetNewTarget()
     {
-        if(_currentTarget != null)
-        {
-            _currentTarget.Destroed -= SetNewTarget;
-        }
-
-        _currentTarget = WoodResources.Instance.GetNearTree(transform.position);
-        _feller.SetTarget(_currentTarget);
+        _currentTarget = _erner.GetSource();
 
         if (_currentTarget != null)
         {
@@ -63,7 +60,6 @@ public class FellerMovingToResource : FellerState
             {
                 if (_currentTarget.IsDestroy == false)
                 {
-                    _currentTarget.Destroed += SetNewTarget;
                     _navAgent.enabled = true;
                     _navAgent.SetDestination(_currentTarget.transform.position);
                 }

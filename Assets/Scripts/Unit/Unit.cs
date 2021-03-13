@@ -7,13 +7,10 @@ public abstract class Unit : MonoBehaviour
 {
     [SerializeField] private UnitStateMachine _stateMachine;
 
-    private void Start()
+    private void Awake()
     {
         OnStart();
     }
 
-    protected virtual void OnStart()
-    {
-
-    }
+    protected abstract void OnStart();
 }

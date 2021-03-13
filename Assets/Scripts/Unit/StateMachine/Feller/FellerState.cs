@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FellerState : State
 {
-    [SerializeField] protected Feller _feller;
+    [SerializeField] protected Erner _erner;
 
     protected int _miningHash = Animator.StringToHash("mining");
     protected int _walkingHash = Animator.StringToHash("move");

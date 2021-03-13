@@ -45,6 +45,33 @@ public class Resources
         return new Resources(0, 0, 0, 0);
     }
 
+    public static Resources GetNormalizedValue(Resources resources)
+    {
+        Resources newResources = new Resources(0, 0, 0, 0);
+
+        if(resources.Ore > 0)
+        {
+            newResources._ore = 1;
+        }
+
+        if(resources.Wood > 0)
+        {
+            newResources._wood = 1;
+        }
+
+        if(resources.Food > 0)
+        {
+            newResources._food = 1;
+        }
+
+        if(resources.Crystal > 0)
+        {
+            newResources._crystal = 1;
+        }
+
+        return newResources;
+    }
+
     public static Resources operator +(Resources first, Resources second)
     {
         return new Resources(first.Ore + second.Ore,

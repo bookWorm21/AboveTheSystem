@@ -2,38 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Feller : Unit
+public class Feller : Erner
 {
-    private Tree _currentTarget;
-    private BuildingResourceContainer _source;
-
-    public event System.Action<BuildingResourceContainer> PlacedSource;
-
-    public Tree GetTarget()
+    protected override ResourceNavigation GetNavigation()
     {
-        return _currentTarget;
-    }
-
-    public BuildingResourceContainer GetSource()
-    {
-        return _source;
-    }
-
-    public void SetTarget(Tree target)
-    {
-        _currentTarget = target;
-    }
-
-    public void SetSource(BuildingResourceContainer source)
-    {
-        _source = source;
-    }
-
-    public void PlaceSource(SawmillInfo sawmill)
-    {
-        if(sawmill.TryGetComponent(out BuildingResourceContainer container))
-        {
-            PlacedSource?.Invoke(container);
-        }
+        return WoodNavigation.GetInstance();
     }
 }

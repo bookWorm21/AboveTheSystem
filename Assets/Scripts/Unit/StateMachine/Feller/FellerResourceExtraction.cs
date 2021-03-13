@@ -7,17 +7,17 @@ public class FellerResourceExtraction : FellerState
     [SerializeField] private State _onOverflow;
     [SerializeField] private State _onTargetDestroyed;
     [SerializeField] private HitTracker _hitTracker;
-    [SerializeField] private FellerResourceContainer _container;
+    [SerializeField] private ErnerResourceContainer _container;
     [SerializeField] private int _maxResourcesInHand;
     [SerializeField] private int _resourcesPerHit;
 
     private int _currentResources;
-    private Tree _currentTarget;
+    private ResourceSource _currentTarget;
 
     private void OnEnable()
     {
         _currentResources = _container.CurrentResourcesCount;
-        _currentTarget = _feller.GetTarget();
+        _currentTarget = _erner.GetSource();
         _animator.SetBool(_miningHash, true);
         _animator.SetBool(_walkingHash, false);
 

@@ -432,6 +432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -1703,6 +1708,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -1871,6 +1881,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -2878,6 +2893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -2972,6 +2992,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -3225,6 +3250,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -4083,6 +4113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -5617,6 +5652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -5711,6 +5751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -7274,6 +7319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -7647,6 +7697,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -7742,6 +7797,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -7836,6 +7896,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -8332,6 +8397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -8860,6 +8930,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -9274,6 +9349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -10638,6 +10718,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -10732,6 +10817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -11147,6 +11237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -11374,6 +11469,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -11883,6 +11983,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6860660005986125899}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1460749921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460749922}
+  m_Layer: 0
+  m_Name: Shaft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460749922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460749921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.43, z: 8.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1689788678}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1461362422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11949,6 +12080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -12118,6 +12254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -13390,6 +13531,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686565673}
   m_CullTransparentMesh: 0
+--- !u!1001 &1689788677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1460749922}
+    m_Modifications:
+    - target: {fileID: 1902742491923462, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_Name
+      value: rock01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
+--- !u!4 &1689788678 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1689788677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1695061711
 GameObject:
   m_ObjectHideFlags: 0
@@ -14153,6 +14357,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -14285,6 +14494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
@@ -15313,6 +15527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -16214,6 +16433,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}
       propertyPath: m_Radius
@@ -16621,7 +16845,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125323161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a9f7ffb62018441af0685937a775ea, type: 3}
+  m_Script: {fileID: 11500000, guid: dfb394876fc279945a7811d7d4145dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _placeLogic: {fileID: 1871095791}
@@ -16830,6 +17054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860660005986125896, guid: b7065e34eac07f64d9e579dcc09395f4,
+        type: 3}
+      propertyPath: _health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6860660005986125897, guid: b7065e34eac07f64d9e579dcc09395f4,
         type: 3}

@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodResources : MonoBehaviour
+public abstract class ResourceNavigation : MonoBehaviour
 {
     [SerializeField] private PlaceLogic _placeLogic;
 
-    private List<SawmillInfo> _sawmills = new List<SawmillInfo>();
-    private List<Feller> _waitingUnits = new List<Feller>();
-    private Tree[] _trees;
+    private List<BuildingResourceContainer> _sawmills = new List<BuildingResourceContainer>();
+    private List<Erner> _waitingUnits = new List<Erner>();
+    private ResourceSource[] _sources;
+
     private int _indexFromStartDestroyedTrees;
 
     private bool _haveWaitingUnits;
-
-    private static WoodResources _instance;
-
-    public static WoodResources Instance => _instance;
 
     private void OnEnable()
     {
@@ -24,22 +21,15 @@ public class WoodResources : MonoBehaviour
 
     private void Start()
     {
-        if(_instance != null)
-        {
-            Destroy(this);
-        }
-
-        _instance = this;
-
-        _trees = FindObjectsOfType<Tree>();
-        SawmillInfo[] sawmills = FindObjectsOfType<SawmillInfo>();
+        _sources = FindResourceSource();
+        BuildingResourceContainer[] sawmills = FindBuildingContainers();
 
         for(int i = 0; i < sawmills.Length; i++)
         {
             _sawmills.Add(sawmills[i]);
         }
 
-        _indexFromStartDestroyedTrees = _trees.Length;
+        _indexFromStartDestroyedTrees = _sources.Length;
     }
 
     private void OnDisable()
@@ -47,7 +37,13 @@ public class WoodResources : MonoBehaviour
         _placeLogic.SmashedBuilding -= OnPlaceNewBuilding;
     }
 
-    public BuildingResourceContainer GetNearSource(Vector3 position)
+    protected abstract BuildingResourceContainer[] FindBuildingContainers();
+
+    protected abstract bool TryGetComponentSpecialContainer(Building building, out BuildingResourceContainer container);
+
+    protected abstract ResourceSource[] FindResourceSource();
+
+    public BuildingResourceContainer GetNearSalePoint(Vector3 position)
     {
         int buildIndex = -1;
         float minDistance = float.MaxValue;
@@ -69,7 +65,7 @@ public class WoodResources : MonoBehaviour
 
             if (buildIndex == -1)
             {
-                _sawmills = new List<SawmillInfo>();
+                _sawmills = new List<BuildingResourceContainer>();
                 return null;
             }
             else
@@ -83,20 +79,20 @@ public class WoodResources : MonoBehaviour
         }
     }
 
-    public void AddInWaitingList(Feller feller)
+    public void AddInWaitingList(Erner feller)
     {
         _haveWaitingUnits = true;
         _waitingUnits.Add(feller);
     }
 
-    public Tree GetNearTree(Vector3 unitPosition)
+    public ResourceSource GetNearSource(Vector3 unitPosition)
     {
         if(_indexFromStartDestroyedTrees <= 0)
         {
             return null;
         }
 
-        Tree target = null;
+        ResourceSource target = null;
         int treeIndex = 0;
         float minDistance = float.MaxValue;
 
@@ -104,9 +100,9 @@ public class WoodResources : MonoBehaviour
         {
             for (int i = 0; i < _indexFromStartDestroyedTrees; i++)
             {
-                if (_trees[i] != null && _trees[i].IsDestroy == false)
+                if (_sources[i] != null && _sources[i].IsDestroy == false)
                 {
-                    float currentDistance = Vector3.Distance(unitPosition, _trees[i].transform.position);
+                    float currentDistance = Vector3.Distance(unitPosition, _sources[i].transform.position);
                     if (currentDistance < minDistance)
                     {
                         treeIndex = i;
@@ -115,25 +111,24 @@ public class WoodResources : MonoBehaviour
                 }
                 else
                 {
-                    Tree template = _trees[i];
+                    ResourceSource template = _sources[i];
 
-                    _trees[i] = _trees[_indexFromStartDestroyedTrees - 1];
-                    _trees[_indexFromStartDestroyedTrees - 1] = template;
+                    _sources[i] = _sources[_indexFromStartDestroyedTrees - 1];
+                    _sources[_indexFromStartDestroyedTrees - 1] = template;
 
                     _indexFromStartDestroyedTrees--;
                 }
             }
 
-            target = _trees[treeIndex];
+            target = _sources[treeIndex];
         }
 
         return target;
     }
 
-
     private void OnPlaceNewBuilding(Building building)
     {
-        if(building.TryGetComponent(out SawmillInfo sawmill))
+        if(TryGetComponentSpecialContainer(building, out BuildingResourceContainer sawmill))
         {
             _sawmills.Add(sawmill);
             
@@ -144,7 +139,7 @@ public class WoodResources : MonoBehaviour
                     _waitingUnits[i].PlaceSource(sawmill);
                 }
 
-                _waitingUnits = new List<Feller>();
+                _waitingUnits = new List<Erner>();
                 _haveWaitingUnits = false;
             }
         }
