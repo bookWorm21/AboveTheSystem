@@ -50,10 +50,10 @@ public abstract class Erner : Unit
         PlacedSource?.Invoke(salePoint);
     }
 
-    protected abstract ResourceNavigation GetNavigation();
-
     protected override void OnStart()
     {
         _navigation = GetNavigation();
     }
+
+    protected abstract ResourceNavigation GetNavigation();
 }

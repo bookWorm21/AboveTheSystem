@@ -14,12 +14,12 @@ public class FellerMovingToResource : FellerState
     private void OnEnable()
     {
         _isActive = true;
-        _navAgent.enabled = true;
         _currentTarget = _erner.GetSource();
 
         _animator.SetBool(_walkingHash, true);
         _animator.SetBool(_miningHash, false);
 
+        _navAgent.enabled = true;
         if (_currentTarget == null || _currentTarget.IsDestroy)
         {
             SetNewTarget();

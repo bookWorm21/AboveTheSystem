@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6e52b50431aec47b341566856b1926, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
-  _productionUnits: []
+  _productionUnits:
+  - {fileID: 11400000, guid: 8e3a3453c2ed6c448a4d87bc004328c2, type: 2}
   _price:
     _ore: 10
     _wood: 5
